@@ -6,10 +6,16 @@
         <entry key="..\:/Users/csw/Documents/GitHub/SupermarketMap/app/src/main/res/drawable/ic_guidance.xml" value="0.248" />
         <entry key="..\:/Users/csw/Documents/GitHub/SupermarketMap/app/src/main/res/layout/activity_main.xml" value="0.3160621761658031" />
         <entry key="..\:/Users/csw/Documents/GitHub/SupermarketMap/app/src/main/res/layout/activity_shopping_car.xml" value="0.3428442028985507" />
+        <entry key="..\:/Users/csw/Documents/GitHub/SupermarketMap/app/src/main/res/layout/activity_srarch_bussion.xml" value="0.3446557971014493" />
         <entry key="..\:/Users/csw/Documents/GitHub/SupermarketMap/app/src/main/res/layout/fragment_business.xml" value="0.3428442028985507" />
+        <entry key="..\:/Users/csw/Documents/GitHub/SupermarketMap/app/src/main/res/layout/fragment_guidance.xml" value="0.3446557971014493" />
+        <entry key="..\:/Users/csw/Documents/GitHub/SupermarketMap/app/src/main/res/layout/fragment_loaction.xml" value="0.3446557971014493" />
         <entry key="..\:/Users/csw/Documents/GitHub/SupermarketMap/app/src/main/res/layout/fragment_map.xml" value="0.3428442028985507" />
         <entry key="..\:/Users/csw/Documents/GitHub/SupermarketMap/app/src/main/res/layout/fragment_my.xml" value="0.1945945945945946" />
+        <entry key="..\:/Users/csw/Documents/GitHub/SupermarketMap/app/src/main/res/layout/fragment_person.xml" value="0.20104166666666667" />
+        <entry key="..\:/Users/csw/Documents/GitHub/SupermarketMap/app/src/main/res/layout/item_bussion.xml" value="0.3446557971014493" />
         <entry key="..\:/Users/csw/Documents/GitHub/SupermarketMap/app/src/main/res/layout/shopping_car_item.xml" value="0.3428442028985507" />
+        <entry key="..\:/Users/csw/Documents/GitHub/SupermarketMap/app/src/main/res/layout/simple_item.xml" value="0.3446557971014493" />
         <entry key="..\:/Users/csw/Documents/GitHub/SupermarketMap/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.248" />
         <entry key="..\:/Users/csw/Documents/GitHub/SupermarketMap/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.248" />
       </map>

@@ -25,8 +25,12 @@
         android:theme="@style/Theme.SupermarketMap"
         tools:targetApi="31">
         <activity
+            android:name=".SearchBussionActivity"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
-            android:exported="true">
+            android:exported="true"
+            android:windowSoftInputMode="adjustPan">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
