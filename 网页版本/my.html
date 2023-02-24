@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我的</title>
+    <style>
+        :root {
+            --icon-size: 100px;
+            --card-width: 80%;
+            --card-img: 80%;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background: #cacaca;
+        }
+
+        #icon {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background-image: url(img/personal.png);
+        }
+
+        #icon img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: var(--icon-size);
+            height: var(--icon-size);
+            margin: 20px;
+        }
+    </style>
+    <style>
+        #card {
+            /*高度300px,宽度100%*/
+            height: 100%;
+            width: 100%;
+            margin-top: 150px;
+        }
+
+        #card-box {
+            /*宽度80% 高度50px，圆角矩形*/
+            margin: auto;
+            margin-top: 40px;
+            width: var(--card-width);
+            height: 100px;
+            border-radius: 20px;
+            /*背景色*/
+            background-color: #ff8585;
+            /* 子元素水平居中 */
+            display: flex;
+        }
+
+        #card-box img {
+            /* 位于左侧居中 */
+            position: relative;
+            top: 0;
+            left: 0;
+            width: 30%;
+            height: var(--card-img);
+            margin-top: 2.5%;
+
+        }
+
+        #card-text {
+            /* 位于右侧居中 */
+            position: relative;
+            top: 0;
+            left: 0;
+            width: 70%;
+            height: var(--card-img);
+            margin-top: 10%;
+            font-size: 30px;
+            color: white;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="icon">
+        <img src="img/personal.svg" alt="">
+    </div>
+    <div id="card">
+        <div id="card-box">
+            <img src="img/personal.svg" alt="">
+            <div id="card-text">
+                收藏夹
+            </div>
+        </div>
+        <div id="card-box">
+            <img src="img/personal.svg" alt="">
+            <div id="card-text">
+                关于我们
+            </div>
+        </div>
+        <div id="card-box">
+            <img src="img/personal.svg" alt="">
+            <div id="card-text">
+                设置
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

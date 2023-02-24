@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>后台</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        $(function () {
+            $("#add").click(function () {
+                $.ajax({
+                    url: "php/add.php",
+                    type: "POST",
+                    success: function (data) {
+                        //刷新数据
+                        $("#refalsh").click();
+                    }
+                })
+            })
+            $("#delete_all").click(function () {
+                $.ajax({
+                    url: "php/del_all.php",
+                    type: "POST",
+                    success: function (data) {
+                        $("#refalsh").click();
+                    }
+                })
+            })
+            $("#down").click(function () {
+                $.ajax({
+                    url: "php/add_1.php",
+                    type: "POST",
+                    //传入数据
+                    data: {
+                        command: "back",
+                        chinese: "向后走"
+                    },
+                    success: function (data) {
+                        $("#refalsh").click();
+                    }
+                })
+            })
+            $("#left").click(function () {
+                $.ajax({
+                    url: "php/add_1.php",
+                    type: "POST",
+                    //传入数据
+                    data: {
+                        command: "left",
+                        chinese: "向左走"
+                    },
+                    success: function (data) {
+                        $("#refalsh").click();
+                    }
+                })
+            })
+            $("#right").click(function () {
+                $.ajax({
+                    url: "php/add_1.php",
+                    type: "POST",
+                    //传入数据
+                    data: {
+                        command: "right",
+                        chinese: "向右走"
+                    },
+                    success: function (data) {
+                        $("#refalsh").click();
+                    }
+                })
+            })
+            $("#go").click(function () {
+                $.ajax({
+                    url: "php/add_1.php",
+                    type: "POST",
+                    //传入数据
+                    data: {
+                        command: "go",
+                        chinese: "前进"
+                    },
+                    success: function (data) {
+                        $("#refalsh").click();
+                    }
+                })
+            })
+            $("#up_lt").click(function () {
+                $.ajax({
+                    url: "php/add_1.php",
+                    type: "POST",
+                    //传入数据
+                    data: {
+                        command: "up",
+                        chinese: "走上楼梯"
+                    },
+                    success: function (data) {
+                        $("#refalsh").click();
+                    }
+                })
+            })
+            $("#down_lt").click(function () {
+                $.ajax({
+                    url: "php/add_1.php",
+                    type: "POST",
+                    //传入数据
+                    data: {
+                        command: "down",
+                        chinese: "走下楼梯"
+                    },
+                    success: function (data) {
+                        $("#refalsh").click();
+                    }
+                })
+            })
+            $("#end").click(function () {
+                $.ajax({
+                    url: "php/add_1.php",
+                    type: "POST",
+                    //传入数据
+                    data: {
+                        command: "end",
+                        chinese: "结束"
+                    },
+                    success: function (data) {
+                        $("#refalsh").click();
+                    }
+                })
+            })
+        })
+        $(function () {
+            $("#refalsh").click(function () {
+                $.ajax({
+                    url: "php/get_all.php",
+                    type: "POST",
+                    success: function (data) {
+                        //把data加入到id为data的div中
+                        //删除原来的数据
+                        $("#data").html("");
+                        // 解析data为json
+                        var json = JSON.parse(data);
+                        // 遍历json加入到id为data的div中
+                        for (var i = 0; i < json.length; i++) {
+                            var item = json[i];
+                            var html = "<div>" + item.id + " " + item.command + " " + item.chinese + "</div>";
+                            $("#data").append(html);
+                        }
+                    }
+                })
+            })
+        })
+
+    </script>
+</head>
+
+<body>
+    <button id="refalsh">刷新数据</button>
+    <div id="data">
+
+    </div>
+    <button id="add">加入数据</button>
+    <p></p>
+    <button id="delete_all">删除全部数据</button>
+    <p></p>
+    <button id="down">向后走</button>
+    <p></p>
+    <button id="left">向左👈走</button>
+    <p></p>
+    <button id="right">向右👉走</button>
+    <p></p>
+    <button id="go">前进</button>
+    <p></p>
+    <button id="up_lt">上楼梯</button>
+    <p></p>
+    <button id="down_lt">下楼梯</button>
+    <p></p>
+    <button id="end">结束</button>
+</body>
+
+</html>

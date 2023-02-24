@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
+    <title>商场地图</title>
+    <style>
+        :root {
+            --icon-size: 65px;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        #map {
+            width: 100%;
+            height: 100vh;
+            background-image: url(img/map.png);
+        }
+
+        #foot {
+            position: absolute;
+            bottom: 0;
+            margin-bottom: 50px;
+            left: 0;
+            width: 100%;
+            height: 100px;
+
+        }
+
+        #foot-box {
+            padding: 10px;
+            margin: auto;
+            width: 80%;
+            height: 100%;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            background-color: #ffffff;
+            /*圆角矩形*/
+            border-radius: 20px;
+        }
+
+        #search {
+            width: 33%;
+            height: 90%;
+            border-radius: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+        }
+
+        #search img {
+            width: 100%;
+            height: var(--icon-size);
+        }
+
+        #personal {
+            width: 33%;
+            height: 90%;
+            border-radius: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #personal img {
+            width: 100%;
+            height: var(--icon-size);
+        }
+
+        #guidance {
+            width: 33%;
+            height: 90%;
+            border-radius: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #guidance img {
+            width: 100%;
+            height: var(--icon-size);
+        }
+    </style>
+    <script>
+        $(function () {
+            //手指下滑，底部导航栏消失
+            var startY = 0;
+            var endY = 0;
+            var foot = document.getElementById("foot");
+            foot.addEventListener("touchstart", function (e) {
+                console.log(e);
+                startY = e.touches[0].clientY;
+            });
+            foot.addEventListener("touchmove", function (e) {
+                endY = e.touches[0].clientY;
+                if (startY - endY > 0) {
+                    foot.style.bottom = "-100px";
+                } else {
+                    foot.style.bottom = "0";
+                }
+            });
+
+        });
+    </script>
+    <style>
+        #search-tab {
+            position: absolute;
+            top: 20px;
+            left: 0;
+            width: 100%;
+            height: 5vh;
+        }
+
+        #search-box {
+            margin: auto;
+            width: 80%;
+            height: 100%;
+            text-align: center;
+        }
+
+        #search-input {
+            margin: auto;
+            width: 80%;
+            height: 100%;
+            background: #fff;
+            border-radius: 20px;
+        }
+
+        #search-input input {
+            width: 100%;
+            height: 100%;
+            border: none;
+            outline: none;
+            padding: 0 10px;
+        }
+
+        #guess ul {
+            width: 100%;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        #guess ul li {
+            width: 90%;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+            background-color: #fff;
+            border-bottom: 1px solid #ccc;
+        }
+    </style>
+    <script>
+        $(function () {
+            var shop = ["美食广场", "三号楼", "江南人家", "冰淇淋", "厕所五楼南", "厕所六楼北"]
+            //搜索框
+            var input = document.getElementById("input");
+            var guess = document.getElementById("guess");
+            input.addEventListener("input", function () {
+                //清空guess
+                guess.children[0].innerHTML = "";
+                //输入框对比shop，如果在shop中存在，则添加在guess中
+                //获取输入框的值
+                var value = input.value;
+                //遍历shop
+                for (var i = 0; i < shop.length; i++) {
+                    //判断输入框的值是否在shop中存在
+                    if (shop[i].indexOf(value) != -1) {
+                        //创建li
+                        var li = document.createElement("li");
+                        //添加内容
+                        li.innerHTML = shop[i];
+                        //添加到ul中
+                        guess.children[0].appendChild(li);
+                    }
+                }
+                guess.style.display = "block";
+                //如果点击li,则将li的内容添加到input中
+                var li = document.querySelectorAll("#guess ul li");
+                for (var i = 0; i < li.length; i++) {
+                    //添加点击事件
+                    li[i].onclick = function () {
+                        //获取li的内容
+                        var text = this.innerHTML;
+                        //添加到input中
+                        input.value = text;
+                        //透明度变成0
+                        guess.style.display = "none";
+                    }
+                }
+
+            });
+            input.addEventListener("blur", function () {
+                //透明度变成0
+                // guess.style.display = "none";
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <div id="map"></div>
+    <div id="search-tab">
+        <div id="search-box">
+            <div id="search-input">
+                <input type="text" placeholder="请输入搜索内容" id="input">
+            </div>
+            <div id="guess">
+                <ul>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div id="foot">
+        <div id="foot-box">
+            <div id="search">
+                <a href="location.html"><img src="img/location.svg" alt=""></a>
+                位置
+            </div>
+            <div id="personal">
+                <a href="my.html"><img src="img/personal.svg" alt=""></a>
+                我的
+            </div>
+            <div id="guidance">
+               <a href="guidance.html"><img src="img/guidance.svg" alt=""></a> 
+                导航
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
